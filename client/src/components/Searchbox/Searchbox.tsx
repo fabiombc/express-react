@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 interface SearchBoxProps {
     onSearch: (query: string) => void;
@@ -6,7 +6,7 @@ interface SearchBoxProps {
     id: string;
 }
 
-const searchBoxRefs: Record<string, React.RefObject<HTMLInputElement>> = {};
+const searchBoxRefs: Record<string, React.RefObject<HTMLInputElement | null>> = {};
 
 const SearchBox: React.FC<SearchBoxProps> = ({ onSearch, options, id }) => {
     const [query, setQuery] = useState("");
@@ -14,7 +14,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch, options, id }) => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
-    const inputRef = useRef<HTMLInputElement>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null); // Allow null here as well
     const dropdownRef = useRef<HTMLDivElement>(null);  // Create a ref for the dropdown container
 
     useEffect(() => {
