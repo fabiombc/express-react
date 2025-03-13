@@ -4,6 +4,8 @@
     "rootDir": "./src",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext"
   }
 }

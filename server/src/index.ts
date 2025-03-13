@@ -1,13 +1,17 @@
 import express, {Request, Response} from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import path from "path";
 import {createServer as createViteServer} from "vite";
+import { fileURLToPath } from 'url';
+import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6868;
 const isDev = process.env.NODE_ENV !== "production";
 
 const startServer = async () => {
